@@ -18,6 +18,7 @@ import com.example.homwork2.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+
     private ActivityMainBinding binding;
 
     @Override
@@ -36,23 +37,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        if (true){
-            navController.navigate(R.id.boardFragment);
-        }
-
-        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
-            @Override
-            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
-                if (navDestination.getId() == R.id.boardFragment){
-                    binding.navView.setVisibility(View.GONE);
-                    getSupportActionBar().hide();
-                }else{
-                    binding.navView.setVisibility(View.VISIBLE);
-                    getSupportActionBar().show();
-                }
-            }
-        });
-
     }
 
 }
